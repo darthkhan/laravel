@@ -18,6 +18,12 @@ Route::get('/', function () {
 Route::get('/home', 'ArticlesController@showArticles');
 Route::get('/create', 'ArticlesController@createArticle');
 Route::get('/home/{id}', 'ArticlesController@displayOneArticle');
-Route::get('home/delete/{id}', 'ArticlesController@deleteArticle');
+Route::get('/home/delete/{id}', 'ArticlesController@deleteArticle');
+Route::get('/home/edit/{id}', 'ArticlesController@editArticle');
+Route::post('/edit/{id}', 'ArticlesController@saveEditArticle');
+Route::post('/create_comment/{id}', 'CommentsController@saveNewComment');
 
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
